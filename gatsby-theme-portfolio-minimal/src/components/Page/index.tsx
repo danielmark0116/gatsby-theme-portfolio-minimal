@@ -6,6 +6,7 @@ import { Layout } from '../Layout';
 interface PageProps {
     children: React.ReactElement;
     useSplashScreenAnimation?: boolean;
+    empty?: boolean;
 }
 
 export function Page(props: PageProps): React.ReactElement {
@@ -19,6 +20,7 @@ export function Page(props: PageProps): React.ReactElement {
             <Layout
                 useSplashScreenAnimation={props.useSplashScreenAnimation || false}
                 useCookieBar={siteConfiguration.featureToggles.useCookieBar}
+                empty={props?.empty}
             >
                 {props.children}
             </Layout>

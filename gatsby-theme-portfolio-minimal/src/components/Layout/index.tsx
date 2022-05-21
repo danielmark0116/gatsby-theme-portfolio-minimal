@@ -15,6 +15,7 @@ interface LayoutProps {
     children: React.ReactElement;
     useSplashScreenAnimation: boolean;
     useCookieBar: boolean;
+    empty?: boolean;
 }
 
 export function Layout(props: LayoutProps): React.ReactElement {
@@ -37,9 +38,9 @@ export function Layout(props: LayoutProps): React.ReactElement {
                 }}
             />
             <div className={classes.Layout}>
-                <Header />
+                {props?.empty ? null : <Header />}
                 <main>{props.children}</main>
-                <Footer />
+                {props?.empty ? null : <Footer />}
                 {props.useCookieBar && <CookieBar />}
             </div>
         </>
